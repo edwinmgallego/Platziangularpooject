@@ -6,17 +6,40 @@
     <title>Document</title>
   </head>
   <body>
-<hr>
- <h1>  Eventos</h1>
-    <p>
-      <input type="text" [value]="person.name" />
+    <h1>*ngIF</h1>
+    
+    <h1>Ngmodel</h1>
+    <p>mi nombre es: {{ person.name }}</p>
+    <input type="text" required #nameInput ="ngModel" [(ngModel)]="person.name" (keyup)="changeName($event)" />
+    <p>valid: {{nameInput.valid}} </p>
+    <h1>Eventos</h1>
+    <p></p>
+    <p>mi nombre es: {{ person.name }}</p>
+    <input type="text" [value]="person.name" (keyup)="changeName($event)" />
 
-      <button [disabled]="btnDisable">enviar</button>
-      <button (click)="toggleButton()">toogle button</button>
-      <p>edad {{person.age}}</p>
-      <button (click)="agePlusPlus()">Age++</button>
-      <div class="box"></div>
-<hr />
+    <button [disabled]="btnDisable">enviar</button>
+    <button (click)="toggleButton()">toogle button</button>
+    <p>edad {{ person.age }}</p>
+    <p><button (click)="agePlusPlus()">Age++</button></p>
+    <div class="box" (scroll)="onScroll($event)">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum id dolore
+        quod alias optio maxime esse iste sequi ab magni?, Lorem, ipsum dolor
+        sit amet consectetur adipisicing elit. Vel veritatis obcaecati mollitia
+        natus eum est placeat quos unde consectetur! Sit recusandae repellat
+        voluptatum earum, sed dolore, iure odit ducimus obcaecati atque, eius
+        praesentium ipsam facilis impedit? Sed optio error vitae vel assumenda
+        totam fugiat quasi sint nisi ipsa, iusto aliquam dicta soluta est
+        ducimus. Vitae, expedita! Vitae asperiores sit, ipsum, iure repudiandae
+        minus vero dolore repellendus natus quam, dicta soluta explicabo
+        consectetur impedit ex cumque voluptates? Saepe numquam asperiores
+        aspernatur nisi aliquid quod. Beatae repellendus distinctio magni,
+        laudantium itaque corrupti quisquam, ipsa aspernatur ducimus perferendis
+        facilis tempore eaque possimus vel?
+      </p>
+    </div>
+
+    <hr />
     <h1>Propiedades</h1>
     <p>
       <input type="text" [value]="person.name" />
@@ -27,13 +50,17 @@
       <progress max="100" [value]="person.age"></progress>
     </p>
 
-    <p> <img width="100" [src]="person.avatar" /></p>
+    <p><img width="100" [src]="person.avatar" /></p>
 
     <hr />
 
-    <h2><p> {{ "hola  chingo amigo ".repeat(6) }}</p></h2>
+    <h2>
+      <p>{{ "hola  chingo amigo ".repeat(6) }}</p>
+    </h2>
     <h3><p>hola soy!</p></h3>
-    <h4><p>{{ name }}, tengo {{ age }}</p></h4>
+    <h4>
+      <p>{{ person.name }}, tengo {{ age }}</p>
+    </h4>
     <p><img src="{{ img }}" alt="imagen" /></p>
   </body>
 </html>
