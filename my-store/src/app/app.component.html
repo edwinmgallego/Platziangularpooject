@@ -7,8 +7,15 @@
   </head>
   <body>
     <h1>*ngfor</h1>
+       <input type="text" required [(ngModel)]="newName"/>
+    <button (click) = "addName()" > Add name</button>
     <ul>
-      <li *ngFor= "let name of names"> {{name}} </li>
+      <li *ngIf="names.length === 0">No hay nombres</li>
+      <li *ngFor= "let name of names ; index as i"> {{i}} {{name}} 
+
+        <button (click)  =  "deleteName(i)">Delete</button>
+      </li>
+      
     </ul>
     <h1>*ngIF</h1>
     <p *ngIf="1 ==1 "> My content</p>

@@ -18,6 +18,7 @@ export class AppComponent {
     age : 40,
     avatar :'https://source.unsplash.com/random'
   }
+  newName = '';
   names: string[] = ['guille😂','diana🐦','santi🐳','oscar💚','edwin🌮'];
 
   toggleButton(){
@@ -38,5 +39,14 @@ console.log(element.scrollTop);
     const element = event.target as HTMLInputElement;
     this.person.name=element.value;
   }
+
+  addName(){
+    this.names.push(this.newName);
+    this.newName = '';
+  }
+  deleteName(index: number){
+    this.names.splice(index, 1);
+  }
+
 
 }
