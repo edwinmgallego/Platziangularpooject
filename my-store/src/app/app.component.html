@@ -6,8 +6,21 @@
     <title>Document</title>
   </head>
   <body>
+    <h1>*ngfor</h1>
+    <ul>
+      <li *ngFor= "let name of names"> {{name}} </li>
+    </ul>
     <h1>*ngIF</h1>
-    
+    <p *ngIf="1 ==1 "> My content</p>
+    <input type="text" required [(ngModel)]="person.name"/>
+    <p *ngIf="person.name === 'nicolas' ">Soy  nicolas</p>
+    <p *ngIf="person.name === 'julian'&& person.age === 40; else elseBlock">Soy  julian</p>
+     <ng-template #elseBlock>
+
+      <p>Bloque else</p>
+
+     </ng-template>
+
     <h1>Ngmodel</h1>
     <p>mi nombre es: {{ person.name }}</p>
     <input type="text" required #nameInput ="ngModel" [(ngModel)]="person.name" (keyup)="changeName($event)" />

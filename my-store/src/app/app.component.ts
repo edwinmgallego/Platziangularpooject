@@ -18,6 +18,7 @@ export class AppComponent {
     age : 40,
     avatar :'https://source.unsplash.com/random'
   }
+  names: string[] = ['guille😂','diana🐦','santi🐳','oscar💚','edwin🌮'];
 
   toggleButton(){
     this.btnDisable= !this.btnDisable;
